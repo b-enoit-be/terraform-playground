@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+(
+  cd $(dirname "$0") \
+    && docker run \
+        --tty \
+        --rm \
+        --interactive \
+        --entrypoint="" \
+        --workdir /usr/local/terraform \
+        --volume $PWD/config:/usr/local/terraform \
+        hashicorp/terraform \
+        ash
+)
